@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>博客</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content=" ">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link href="css/base.css" rel="stylesheet" type="text/css">
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <script src="js/font.js"></script>
+	<script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="js/swipe.js"></script>
+    <script>
+    	$(function (){
+			var mySwipe=Swipe($('.banner')[0],{
+				auto:2000,
+				continuous:true,
+				stopPropation:true,
+				callback:function (index,element){
+					$('.banner ol li').removeClass('active');
+					$('.banner ol li').eq(index).addClass('active');
+				}
+			});
+		});
+    </script>
+ </head>
+<body>
+<div class="nav">
+	<ul>
+    	<li class="active"><a href="javascript:;">首页</a></li>
+    	<li><a href="javascript:;">关注</a></li>
+    	<li><a href="javascript:;">栏目</a></li>
+    </ul>
+</div>
+<div class="content">
+	<div class="banner">
+        <ul class="clearfix">
+            <li><img src="images/img_1.jpg" alt=""/>
+            	<div class="text-box">
+                	<h2>海边的风景</h2>
+                    <p>日出的海边 / 文</p>
+                </div>
+            </li>
+            <li><img src="images/img_2.jpg" alt=""/>
+            	<div class="text-box">
+                	<h2>还是海边的风景</h2>
+                    <p>日落的海边 / 文</p>
+                </div>
+            </li>
+            <li><img src="images/img_3.jpg" alt=""/>
+            	<div class="text-box">
+                	<h2>河边的风景</h2>
+                    <p>日落的河边 / 文</p>
+                </div>
+            </li>
+        </ul>
+        <ol>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ol>
+    </div>
+    <div class="newsList">
+    	<ul>
+            <li>
+            	<a href="#">
+                    <h2>男子患小儿麻痹双手残疾 日卖12小时炒面自力更生</h2>
+                    <p>每天下午4点起，在河南洛阳市栾川县的君山广场旁，人们可以从赵强的路边摊位买到这样一份特殊的炒面。因患小儿麻痹症，赵强双手残疾，但依然每天出门摆摊赚取收入。</p>
+                </a>
+            </li>
+            <li>
+            	<a href="#">
+                    <h2>探访成都无人酒店 刷脸入住没有前台十分智能化</h2>
+                    <p>探访成都无人酒店 刷脸入住没有前台十分智能化 手机订房、刷脸入住、没有前台、退房无人查房……成都首家无人酒店2018年元旦开业，开业两个多月来入住顾客们交上了“从未有物品遗失”的诚信答卷。</p>
+                </a>
+            </li>
+            <li>
+            	<a href="#">
+                    <h2>欧豪为马思纯庆生，高调秀恩爱力破分手谣言</h2>
+                    <p>起娱乐圈的小情侣，马思纯和欧豪这一对可以说是低调撒狗粮的类型。时至今日，这对姐弟恋情也日趋稳定，3月14日，恰逢马思纯30岁的生日，又正逢3月情人节。欧豪在个人社交网站上晒出为马思纯庆生的照片，难得高调的秀恩爱真是羡煞广大单身狗。</p>
+                </a>
+            </li>
+            <li>
+            	<a href="#">
+                    <h2>特朗普：说个大新闻，我们要建立一支太空部队！</h2>
+                    <p>据《华盛顿邮报》报道，特朗普对美国海军陆战队员们表示，“对于太空，我的新版国家战略认识到，太空是一个战场，就像海陆空一样。我们已经拥有空军，我们也将拥有太空部队。”</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="foot-btn">
+	<ul>
+    	<li class="home"><a href="index.html"></a></li>
+        <li class="write"><a href="javascript:;"></a></li>
+        <li class="my"><a href="mydoc.html"></a></li>
+    </ul>
+</div>
+</body>
+</html>
