@@ -90,14 +90,14 @@ body{
   height: 100%;
 }
 .contentTwo{
-  width: 48%;
+  width: 49%;
   height: 80px;
   line-height: 80px;
   background: #fff;
   text-align: center;
   color: #00000;
   float: left;
-  margin: 1px 1%;
+  margin: 1px 1px;
   font-size: 15px;
   box-shadow: 1px 1px 1px gray;
 }
