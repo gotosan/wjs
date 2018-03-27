@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+  <meta name="render" content="webkit">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta name="format-detection" content="telephone=no">
+  <!-- <meta  http-equiv="Cache-Control" content="no-cach,no-store,must-revalidate">    -->
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>孕福产科</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/idangerous.swiper.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/base.css">
+</head>
+<script>
+</script>
+<body>
+  <!-- 头部logo -->
+  <div class="head">
+  </div>
+
+  <!-- 中间轮播图 -->
+  <!-- <div class="device">
+    <a class="arrow-left" href="#"></a>
+    <a class="arrow-right" href="#"></a>
+    <div class="banner swiper-container">
+      <div class="swiper-wrapper">
+        <ul>
+          <li class="swiper-slide"><a href="#"><img src="./img/img_1.jpg" alt=""></a></li>
+          <li class="swiper-slide"><a href="#"><img src="./img/img_2.jpg" alt=""></a></li>
+          <li class="swiper-slide"><a href="#"><img src="./img/img_3.jpg" alt=""></a></li>
+        </ul>
+      </div>
+
+     </div>
+         <div class="pagination"></div>
+       </div> -->
+  <div class="device">
+  <a class="arrow-left" href="#"></a>
+  <a class="arrow-right" href="#"></a>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"> <img src="./img/img_1.jpg"> </div>
+      <div class="swiper-slide"> <img src="./img/img_2.jpg"> </div>
+      <div class="swiper-slide"> <img src="./img/img_3.jpg"> </div>
+    </div>
+  </div>
+  <div class="pagination"></div>
+</div>
+  <!-- 分栏 -->
+  <div class="row">
+    <div class="fenlan">.col-xs-6 .col-md-4</div>
+    <div class="fenlan">.col-xs-6 .col-md-4</div>
+    <div class="fenlan">.col-xs-6 .col-md-4</div>
+  </div>
+  <script src="./js/jquery-1.10.1.min.js">  </script>
+  <script src="./js/idangerous.swiper.min.js">  </script>
+  <script>
+      var mySwiper=new Swiper('.swiper-container',{
+        pagination:'.pagination',
+        loop:true,
+        grabCursor:true,
+        paginationClickable:true
+      })
+      $('.arrow-left').on('click',function(e){
+        e.preventDefault()
+        mySwiper.swipePrev()
+      })
+      $('.arrow-right').on('click',function(e){
+        e.preventDefault()
+        mySwiper.swipeNext()
+      })
+   </script>
+</body>
+</html>
