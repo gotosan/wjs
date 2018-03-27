@@ -97,9 +97,9 @@ body{
   text-align: center;
   color: #00000;
   float: left;
-  margin: 1px 1px;
+  margin: 1px 0 0 1px;
   font-size: 15px;
-  box-shadow: 1px 1px 1px gray;
+  box-shadow: -1px 1px 1px gray;
 }
 
 /* 模态框 */
