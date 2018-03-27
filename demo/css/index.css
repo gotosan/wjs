@@ -4,6 +4,11 @@
   background: pink;
   margin: 0 auto;
 }
+.head h1{
+  line-height: 70px;
+  color: #fff;
+  text-align: center;
+}
 body{
   background-color: rgb(255,251,240);
 }
@@ -50,25 +55,34 @@ body{
 }
 
 /* 内容分栏 */
-.row{
+.content{
   max-width: 640px;
   margin: 0 auto;
   padding: 0 10px;
 }
 .fenlan{
   width: 30%;
-  height:100px;
+  height:150px;
   background: pink;
   margin-left: 3%;
   float: left;
   color: #fff;
   text-align: center;
-  line-height: 100px;
+  line-height: 150px;
   border-left:1px solid black;
 }
 .fenlan a{
   color: #fff;
 }
+.contentTwo{
+  height: 80px;
+  line-height: 80px;
+  background: pink;
+  text-align: center;
+  color: #fff;
+}
+
+/* 模态框 */
 #myModal{
   position: absolute;
   top: 50%;

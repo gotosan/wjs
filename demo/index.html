@@ -22,6 +22,7 @@
 <body>
   <!-- 头部logo -->
   <div class="head">
+    <h1>孕福产科</h1>
   </div>
 
   <!-- 中间轮播图  因为使用bootstrap轮播图不能滑动 所以这里选择使用swiper框架-->
@@ -30,46 +31,51 @@
     <a class="arrow-right" href="#"></a>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"> <img src="./img/img_1.jpg"> </div>
-        <div class="swiper-slide"> <img src="./img/img_2.jpg"> </div>
-        <div class="swiper-slide"> <img src="./img/img_3.jpg"> </div>
+        <div class="swiper-slide"> <img src="#"> </div>
+        <div class="swiper-slide"> <img src="#"> </div>
+        <div class="swiper-slide"> <img src="#"> </div>
       </div>
   </div>
   <div class="pagination"></div>
 </div>
-  <!-- 分栏 -->
-  <div class="row">
+  <!-- 内容 -->
+  <div class="content">
+    <!-- 分栏 -->
     <div class="fenlan">
       <a href="#" data-toggle="modal" data-target="#myModal">特色服务
       </a>
     </div>
     <div class="fenlan">医疗科室</div>
     <div class="fenlan">联系我们</div>
+
+    <div class="clear">  </div>
+            <!-- 内容2 -->
+    <div class="margin_top">
+        <div class="col-sm-6 col-xs-6 contentTwo">体检预约</div>
+        <div class="col-sm-6 col-xs-6 contentTwo">体检报告</div>
+        <div class="col-sm-6 col-xs-6 contentTwo">注册登录</div>
+        <div class="col-sm-6 col-xs-6 contentTwo">我的订单</div>
+     </div>
   </div>
-        <!-- 模态框声明-->
+        <!-- 模态框-->
         <div class=" modal fade " id="myModal" tabindex="-1">
           <!-- 窗口声明 -->
           <div class="modal-dialog">
             <!-- 内容声明 -->
                 <div class="modal-content">
                 <a href="#">
-                  <div class="modal-head">
-                      <span class="glyphicon glyphicon-user"></span>
+                  <div class="modal-body">
                       <h4>单位体检</h4>
                       <p>团检用户预约通道</p>
                   </a>
                   </div>
                   <div class="modal-body">
-                      <span class="glyphicon glyphicon-flash"></span>
                       <h4>个人体检</h4>
                       <p>免登录-极速预约</p>
                   </div>
                 </div>
             </div>
         </div>
-  <div class="content">
-
-    </div>
   <script src="./js/jquery.js">  </script>
   <script src="./js/idangerous.swiper.min.js">  </script>
   <script src="./js/bootstrap.min.js">  </script>

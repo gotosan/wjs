@@ -23,4 +23,5 @@ input::-ms-clear{display:none;}
 .left{ float:left; _display:inline; }
 .right{ float:right; _display:inline; }
 .clear:after{ display:block; content:''; clear:both;}
-.clear{ zoom:1;}
+.clear{ clear:both;}
+.margin_top{margin-top: 5px;}
