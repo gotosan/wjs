@@ -10,7 +10,7 @@
   text-align: center;
 }
 body{
-  background-color: rgb(255,251,240);
+  background: rgb(255,251,240);
 }
 /* 轮播图 */
 .device {
@@ -63,26 +63,28 @@ body{
 .fenlan{
   width: 30%;
   height:150px;
-  background: pink;
+  background: #fff;
   margin-left: 3%;
   float: left;
-  color: #fff;
+  color: #00000;
   text-align: center;
   line-height: 150px;
-  border-left:1px solid black;
+  position: relative;
+  font-size: 20px;
 }
 .fenlan a{
-  color: #fff;
+  color: #00000;
 }
 .contentTwo{
   width: 48%;
   height: 80px;
   line-height: 80px;
-  background: pink;
+  background: #fff;
   text-align: center;
-  color: #fff;
+  color: #00000;
   float: left;
   margin: 1px 1%;
+  font-size: 15px;
 }
 
 /* 模态框 */
