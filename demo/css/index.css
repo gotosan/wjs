@@ -6,6 +6,7 @@
 }
 .logo img{
     width:40%;
+    height: 100%;
 }
 .logo .logo_png{
   float: left;
@@ -32,6 +33,10 @@ body{
   margin: 5px auto;
   position: relative;
 }
+.device img{
+  width: 100%;
+  height:100%;
+}
 .swiper-container {
   height: 200px;
   max-width: 375px;
@@ -45,7 +50,7 @@ body{
   position: absolute;
   left: 0;
   text-align: center;
-  bottom:5px;
+  bottom:-15px;
   width: 100%;
   z-index:2;
 }
@@ -62,30 +67,24 @@ body{
 .swiper-active-switch {
   background: #fff;
 }
-.device img{
-  width: 100%;
-  display: block;
-}
 
 /* 内容分栏 */
 .content{
   max-width: 375px;
   margin: 0 auto;
-  padding: 0 10px;
 }
 .fenlan{
-  width: 31%;
+  width: 33%;
   height:150px;
   background: #fff;
-  margin-left: 2%;
   float: left;
   color: #00000;
   text-align: center;
   line-height: 150px;
   position: relative;
   font-size: 20px;
-  border-bottom: 1px solid gray;
-  border-radius: 10px;
+  margin-left: 1px;
+  box-shadow: 1px 1px 1px gray;
 }
 .fenlan img{
   width: 100%;
@@ -101,6 +100,7 @@ body{
   float: left;
   margin: 1px 1%;
   font-size: 15px;
+  box-shadow: 1px 1px 1px gray;
 }
 
 /* 模态框 */
