@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="./css/idangerous.swiper.css">
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/index.css">
 </head>
 <script>
 </script>
@@ -23,42 +24,55 @@
   <div class="head">
   </div>
 
-  <!-- 中间轮播图 -->
-  <!-- <div class="device">
+  <!-- 中间轮播图  因为使用bootstrap轮播图不能滑动 所以这里选择使用swiper框架-->
+  <div class="device">
     <a class="arrow-left" href="#"></a>
     <a class="arrow-right" href="#"></a>
-    <div class="banner swiper-container">
+    <div class="swiper-container">
       <div class="swiper-wrapper">
-        <ul>
-          <li class="swiper-slide"><a href="#"><img src="./img/img_1.jpg" alt=""></a></li>
-          <li class="swiper-slide"><a href="#"><img src="./img/img_2.jpg" alt=""></a></li>
-          <li class="swiper-slide"><a href="#"><img src="./img/img_3.jpg" alt=""></a></li>
-        </ul>
+        <div class="swiper-slide"> <img src="./img/img_1.jpg"> </div>
+        <div class="swiper-slide"> <img src="./img/img_2.jpg"> </div>
+        <div class="swiper-slide"> <img src="./img/img_3.jpg"> </div>
       </div>
-
-     </div>
-         <div class="pagination"></div>
-       </div> -->
-  <div class="device">
-  <a class="arrow-left" href="#"></a>
-  <a class="arrow-right" href="#"></a>
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"> <img src="./img/img_1.jpg"> </div>
-      <div class="swiper-slide"> <img src="./img/img_2.jpg"> </div>
-      <div class="swiper-slide"> <img src="./img/img_3.jpg"> </div>
-    </div>
   </div>
   <div class="pagination"></div>
 </div>
   <!-- 分栏 -->
   <div class="row">
-    <div class="fenlan">.col-xs-6 .col-md-4</div>
-    <div class="fenlan">.col-xs-6 .col-md-4</div>
-    <div class="fenlan">.col-xs-6 .col-md-4</div>
+    <div class="fenlan">
+      <a href="#" data-toggle="modal" data-target="#myModal">特色服务
+      </a>
+    </div>
+    <div class="fenlan">医疗科室</div>
+    <div class="fenlan">联系我们</div>
   </div>
-  <script src="./js/jquery-1.10.1.min.js">  </script>
+        <!-- 模态框声明-->
+        <div class=" modal fade " id="myModal" tabindex="-1">
+          <!-- 窗口声明 -->
+          <div class="modal-dialog">
+            <!-- 内容声明 -->
+                <div class="modal-content">
+                <a href="#">
+                  <div class="modal-head">
+                      <span class="glyphicon glyphicon-user"></span>
+                      <h4>单位体检</h4>
+                      <p>团检用户预约通道</p>
+                  </a>
+                  </div>
+                  <div class="modal-body">
+                      <span class="glyphicon glyphicon-flash"></span>
+                      <h4>个人体检</h4>
+                      <p>免登录-极速预约</p>
+                  </div>
+                </div>
+            </div>
+        </div>
+  <div class="content">
+
+    </div>
+  <script src="./js/jquery.js">  </script>
   <script src="./js/idangerous.swiper.min.js">  </script>
+  <script src="./js/bootstrap.min.js">  </script>
   <script>
       var mySwiper=new Swiper('.swiper-container',{
         pagination:'.pagination',
