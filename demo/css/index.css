@@ -75,11 +75,14 @@ body{
   color: #fff;
 }
 .contentTwo{
+  width: 44%;
   height: 80px;
   line-height: 80px;
   background: pink;
   text-align: center;
   color: #fff;
+  float: left;
+  margin: 3%;
 }
 
 /* 模态框 */
