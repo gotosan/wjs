@@ -1,5 +1,5 @@
 .logo{
-  max-width: 640px;
+  max-width: 375px;
   height: 60px;
   background: #fff;
   margin: 0 auto;
@@ -16,7 +16,7 @@
   margin-right: 2%;
 }
 .head{
-  max-width: 640px;
+  max-width: 375px;
   height:50px;
   background: pink;
   margin: 0 auto;
@@ -33,7 +33,7 @@ body{
 }
 .swiper-container {
   height: 200px;
-  max-width: 640px;
+  max-width: 375px;
   z-index:1;
 }
 .title {
@@ -68,7 +68,7 @@ body{
 
 /* 内容分栏 */
 .content{
-  max-width: 640px;
+  max-width: 375px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -87,6 +87,7 @@ body{
 }
 .fenlan img{
   width: 100%;
+  height: 100%;
 }
 .contentTwo{
   width: 48%;
@@ -109,7 +110,7 @@ body{
 }
 /* 尾部 */
 .footer{
-  max-width: 640px;
+  max-width: 375px;
   height:70px;
   line-height: 70px;
   background: pink;
