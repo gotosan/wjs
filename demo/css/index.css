@@ -1,6 +1,6 @@
 .logo{
-  max-width: 375px;
-  height: 60px;
+  max-width: 450px;
+  height: 73.5px;
   background: #fff;
   margin: 0 auto;
 }
@@ -16,18 +16,12 @@
   float: right;
   margin-right: 2%;
 }
-.head{
-  max-width: 375px;
-  height:50px;
-  background: pink;
-  margin: 0 auto;
-}
 body{
   /* background: rgb(255,251,240); */
   background: rgb(241,244,251);
 }
 /* 轮播图 */
-.device {
+/* .device {
   width: 100%;
   height: 200px;
   margin: 5px auto;
@@ -39,7 +33,7 @@ body{
 }
 .swiper-container {
   height: 200px;
-  max-width: 375px;
+  max-width: 450px;
   z-index:1;
 }
 .title {
@@ -50,9 +44,10 @@ body{
   position: absolute;
   left: 0;
   text-align: center;
-  bottom:-15px;
+  bottom:0%;
   width: 100%;
   z-index:2;
+  margin: 0 0;
 }
 .swiper-pagination-switch {
   display: inline-block;
@@ -66,12 +61,16 @@ body{
 }
 .swiper-active-switch {
   background: #fff;
-}
+} */
 
+#carousel-example-generic{
+  max-width: 450px;
+  margin: 0 auto;
+}
 /* 内容分栏 */
 .content{
-  max-width: 375px;
-  margin: 0 auto;
+  max-width: 450px;
+  margin: -1% auto;
 }
 .fenlan{
   width: 33%;
@@ -84,36 +83,110 @@ body{
   position: relative;
   font-size: 20px;
   margin-left: 1px;
+  position: relative;
+  overflow: hidden;
+}
+.fenlan p{
+  display: block;
+  position: absolute;
+  left: 22%;
+  top: -22%;
+  z-index: 100;
+  font-size: 17px;
+}
+.fenlan .fenlan-icon{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: -27px;
+  z-index: 1;
 }
 .fenlan img{
   width: 100%;
   height: 100%;
+  margin: 0 auto;
+}
+/* 便捷入口 */
+.rukou{
+  float: left;
+  width: 100%;
+  height:30px;
+  color: #B0B0B0;
+  line-height: 30px;
+  font-size: 12px;
+}
+.icon-point-right{
+  margin-left: 2%;
 }
 .contentTwo{
-  width: 49%;
+  width: 50%;
   height: 80px;
   line-height: 80px;
   background: #fff;
   text-align: center;
   color: #00000;
   float: left;
-  margin: 1px 0 0 1px;
   font-size: 15px;
-  box-shadow: -1px 1px 1px gray;
+  box-shadow: 0 -1px 1px #B0B0B0;
+}
+.contentTwo p{
+  display: block;
+  float: left;
+  margin-left: 20%;
+
 }
 
 /* 模态框 */
 #myModal{
+  width: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%)translateY(-25%);
+}
+/* 模态框图标设置 */
+.icon-users{
+  position: absolute;
+  left: -5px;
+  top: 0px;
+  font-size: 30px;
+  margin: 15px;
+}
+.icon-user{
+  position: absolute;
+  left: -5px;
+  top: 0px;
+  font-size: 30px;
+  margin: 15px;
+}
+.icon-brightness-contrast,.icon-home3,.icon-envelop,.icon-cart{
+  font-size: 30px;
+  line-height: 80px;
+  float: right;
+  margin-right: 15%;
+}
+
+/* modal调整 */
+.modal-content .modal-body{
+  position: relative;
+  border-bottom: 1px solid #B0B0B0;
+}
+.modal-content .modal-body .icon-title{
+    padding-left: 25%;
+}
+.modal-content .modal-body h4{
+  font-size: 17px;
+  color: #333;
+}
+.modal-content .modal-body p{
+  margin-top: 2px;
+  font-size: 10px;
 }
 /* 尾部 */
 .footer{
-  max-width: 375px;
-  height:70px;
-  line-height: 70px;
+  max-width: 450px;
+  height:50px;
+  line-height: 50px;
   background: pink;
   margin: 0 auto;
   text-align: center;

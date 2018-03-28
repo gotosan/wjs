@@ -25,11 +25,10 @@
     <img src="./images/logo.png" alt="" class="logo_png">
     <img src="./images/tel.png" alt="" class="tel_png">
   </div>
-    <div class="head">  </div>
 
 
   <!-- 中间轮播图  因为使用bootstrap轮播图不能滑动 所以这里选择使用swiper框架-->
-  <div class="device">
+  <!-- <div class="device">
     <a class="arrow-left" href="#"></a>
     <a class="arrow-right" href="#"></a>
     <div class="swiper-container">
@@ -40,35 +39,82 @@
       </div>
   </div>
   <div class="pagination"></div>
+</div> -->
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./images/img_1.jpg" alt="...">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/img_2.jpg" alt="...">
+          <div class="carousel-caption">
+          </div>
+        </div>
+        <div class="item">
+          <img src="./images/img_3.jpg" alt="...">
+          <div class="carousel-caption">
+          </div>
+        </div>
+      </div>
 </div>
 
 
   <!-- 内容 -->
   <div class="content">
     <!-- 分栏 -->
-    <div class="fenlan">
+    <div class="fenlan ">
           <a href="#" data-toggle="modal" data-target="#myModal">
-            <img src="./images/icon_3.png" alt="" class="icon_png">
+            <p>体检预约</p>
+            <div class="fenlan-icon"><img src="./images/icon_4.png" alt="" class="icon_png"></div>
           </a>
         </div>
         <div class="fenlan">
           <a href="#">
-            <img src="./images/icon_1.png" alt="" class="icon_png">
+            <p>体检报告</p>
+            <div class="fenlan-icon"><img src="./images/icon_5.png" alt="" class="icon_png"></div>
           </a>
         </div>
         <div class="fenlan">
           <a href="#">
-            <img src="./images/icon_2.png" alt="" class="icon_png">
+            <p>登录/注册</p>
+            <div class="fenlan-icon"><img src="./images/icon_6.png" alt="" class="icon_png"></div>
           </a>
         </div>
 
     <div class="clear">  </div>
+    <!-- 便捷入口 -->
+    <div class="rukou">
+      <span class="icon-point-right"></span>
+      <span>便捷入口</span>
+    </div>
             <!-- 内容2 -->
     <div class="margin_top">
-        <div class="contentTwo">体检预约</div>
-        <div class="contentTwo">体检报告</div>
-        <div class="contentTwo">注册登录</div>
-        <div class="contentTwo">我的订单</div>
+        <div class="contentTwo">
+          <p>特色服务</p>
+          <span class="icon-brightness-contrast"></span>
+        </div>
+        <div class="contentTwo">
+          <p>医疗科室</p>
+          <span class="icon-home3"></span>
+        </div>
+        <div class="contentTwo">
+          <p>联系我们</p>
+          <span class="icon-envelop"></span>
+        </div>
+        <div class="contentTwo">
+          <p>我的订单</p>
+          <span class="icon-cart"> </span>
+        </div>
      </div>
   </div>
 
@@ -81,14 +127,22 @@
                 <div class="modal-content">
                 <a href="#">
                   <div class="modal-body">
-                      <h4>单位体检</h4>
-                      <p>团检用户预约通道</p>
+                    <span class="icon-users"></span>
+                      <div class="icon-title">
+                        <h4>单位体检</h4>
+                        <p>团检用户预约通道</p>
+                      </div>
                   </a>
                   </div>
+                  <a href="#">
                   <div class="modal-body">
-                      <h4>个人体检</h4>
-                      <p>免登录-极速预约</p>
+                    <span class="icon-user"></span>
+                      <div class="icon-title">
+                        <h4>个人体检</h4>
+                        <p>免登录-极速预约</p>
+                    </div>
                   </div>
+                  </a>
                 </div>
             </div>
         </div>
@@ -102,20 +156,27 @@
   <script src="./js/jquery.js">  </script>
   <script src="./js/idangerous.swiper.min.js">  </script>
   <script src="./js/bootstrap.min.js">  </script>
+  <script src="./js/index.js"></script>
   <script>
-      var mySwiper=new Swiper('.swiper-container',{
-        pagination:'.pagination',
-        loop:true,
-        grabCursor:true,
-        paginationClickable:true
-      })
-      $('.arrow-left').on('click',function(e){
-        e.preventDefault()
-        mySwiper.swipePrev()
-      })
-      $('.arrow-right').on('click',function(e){
-        e.preventDefault()
-        mySwiper.swipeNext()
+  // 滑动图片
+      // var mySwiper=new Swiper('.swiper-container',{
+      //   pagination:'.pagination',
+      //   loop:true,
+      //   grabCursor:true,
+      //   paginationClickable:true
+      // })
+      // $('.arrow-left').on('click',function(e){
+      //   e.preventDefault()
+      //   mySwiper.swipePrev()
+      // })
+      // $('.arrow-right').on('click',function(e){
+      //   e.preventDefault()
+      //   mySwiper.swipeNext()
+      // })
+
+      // 设置轮播图时间
+      $('.carousel').carousel({
+        interval: 2000
       })
    </script>
 </body>
