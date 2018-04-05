@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .product {
+            width: 450px;
+        }
+
+        .product-price {
+            float: right;
+        }
+
+        .total {
+            float: right;
+        }
+
+        input[type='text'] {
+            width: 50px;
+        }
+    </style>
+    <title>购物车结算</title>
+</head>
+
+<body>
+    <div>
+
+        <!--第一个店铺-->
+        <div>店铺1</div>
+        <div class="store">
+            <!--第一个商品-->
+            <div class="product">
+                <span>商品A</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">10</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <!--第二个商品-->
+            <div class="product">
+                <span>商品B</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">19.99</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <!--第三个商品-->
+            <div class="product">
+                <span>商品C</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">19.99</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <div>
+                <input class="store-check" type="checkbox" />
+                <span>店铺全选 本店合计：￥</span>
+                <b class="store-total-price">0.00</b>
+            </div>
+        </div>
+
+        <div>店铺2</div>
+        <div class="store">
+            <!--第一个商品-->
+            <div class="product">
+                <span>商品D</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">19.99</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <!--第二个商品-->
+            <div class="product">
+                <span>商品E</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">19.99</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <!--第三个商品-->
+            <div class="product">
+                <span>商品F</span>
+                <input class="product-check" type="checkbox" />
+                <button class="min">-</button>
+                <input class="num" type="text" value="1" />
+                <button class="max">+</button>
+                <div class="product-price">
+                    <span>单价：￥</span>
+                    <b class="product-one-price">19.99</b>
+                    <span>总计：￥</span>
+                    <b class="product-total-price">0.00</b>
+                </div>
+            </div>
+            <div>
+                <input class="store-check" type="checkbox" />
+                <span>店铺全选 本店合计：￥</span>
+                <b class="store-total-price">0.00</b>
+            </div>
+        </div>
+
+        <div>
+            <input class="total-check" type="checkbox" />
+            <span>全选 合计：￥</span>
+            <b class="total-price">0.00</b>
+            <span>共计</span>
+            <b class="total-product-num">0</b>
+            <span>件商品</span>
+        </div>
+    </div>
+
+    </div>
+    <script src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+        //商品数量输入
+        $(".num").keyup(function () {
+            var tmptxt = $(this).val();
+            $(this).val(tmptxt.replace(/\D|^0/g, ''));//限制输入的内容，只能是1-9的数字
+        }).bind("paste", function () {
+            var tmptxt = $(this).val();
+            $(this).val(tmptxt.replace(/\D|^0/g, ''));//限制复制的内容，只能是1-9的数字
+        }).bind("input propertychange", function () {
+            var price = 0;
+            price = parseFloat($(this).parents(".product").find(".product-one-price").text() * $(this).val());
+            if (isNaN(price)) {
+                price = $(this).parents(".product").find(".product-one-price").text() * 1;//若输入的不为数字默认为1
+            }
+            $(this).parents(".product").find(".product-total-price").text(price.toFixed(2)); //显示被选中商品的总价
+            TotalPrice();
+        }).blur(function () {
+            if ($(this).val() == '') {
+                $(this).val(1);//如果输入为0，失去焦点时默认为1
+            }
+            var price = 0;
+            price = parseFloat($(this).parents(".product").find(".product-one-price").text() * $(this).val());
+            if (isNaN(price)) {
+                price = $(this).parents(".product").find(".product-one-price").text() * 1;//若输入的不为数字默认为1
+            }
+            $(this).parents(".product").find(".product-total-price").text(price.toFixed(2)); //显示被选中商品的总价
+            TotalPrice();
+        });
+
+        // 数量减
+        $(".min").click(function () {
+            var t = $(this).parent().find('.num');
+            t.val(parseInt(t.val()) - 1);
+            if (t.val() <= 1) {
+                t.val(1);
+            }
+            var price = 0;
+            price = $(this).parent(".product").find(".product-one-price").text() * t.val();
+            $(this).parent(".product").find(".product-total-price").text(price.toFixed(2));
+            TotalPrice();
+        });
+
+        // 数量加
+        $(".max").click(function () {
+            var t = $(this).parent().find('.num');
+            t.val(parseInt(t.val()) + 1);
+            if (t.val() <= 1) {
+                t.val(1);
+            }
+            var price = 0;
+            price = $(this).parent(".product").find(".product-one-price").text() * t.val();
+            $(this).parent(".product").find(".product-total-price").text(price.toFixed(2));
+            TotalPrice();
+        });
+
+        // 点击商品按钮
+        $(".product-check").click(function () {
+            //closest(最靠近的)
+            var goods = $(this).closest(".store").find(".product-check"); //获取本店铺的所有商品
+            var goodsC = $(this).closest(".store").find(".product-check:checked"); //获取本店铺所有被选中的商品
+            var shopC = $(this).closest(".store").find(".store-check"); //获取本店铺的全选按钮
+            if (goods.length == goodsC.length) { //如果选中的商品等于所有商品
+                shopC.prop('checked', true); //店铺全选按钮被选中
+                if ($(".store-check").length == $(".store-check:checked").length) { //如果店铺被选中的数量等于所有店铺的数量
+                    $(".total-check").prop('checked', true); //全选按钮被选中
+                    TotalPrice();
+                } else {
+                    $(".total-check").prop('checked', false); //else全选按钮不被选中
+                    TotalPrice();
+                }
+            } else { //如果选中的商品不等于所有商品
+                shopC.prop('checked', false); //店铺全选按钮不被选中
+                $(".total-check").prop('checked', false); //全选按钮也不被选中
+                // 计算
+                TotalPrice();
+                // 计算
+            }
+        });
+
+        // 点击店铺按钮
+        $(".store-check").change(function () {
+            if ($(this).prop("checked") == true) { //如果店铺按钮被选中
+                $(this).parents(".store").find(".product-check").prop('checked', true); //店铺内的所有商品按钮也被选中
+                if ($(".store-check").length == $(".store-check:checked").length) { //如果店铺被选中的数量等于所有店铺的数量
+                    $(".total-check").prop('checked', true); //全选按钮被选中
+                    TotalPrice();
+                } else {
+                    $(".total-check").prop('checked', false); //else全选按钮不被选中
+                    TotalPrice();
+                }
+            } else { //如果店铺按钮不被选中
+                $(this).parents(".store").find(".product-check").prop('checked', false); //店铺内的所有商品也不被全选
+                $(".total-check").prop('checked', false); //全选按钮也不被选中
+                TotalPrice();
+            }
+        });
+
+        //点击全选按钮
+        $(".total-check").click(function () {
+            if ($(this).prop("checked") == true) { //如果全选按钮被选中
+                $(".product-check").prop('checked', true); //所有商品都被选中
+                $(".store-check").prop('checked', true); //所有店铺都被选中
+                TotalPrice();
+            } else {
+                $(".product-check").prop('checked', false); //else所有商品按钮不全选
+                $(".store-check").prop('checked', false); //所有店铺按钮不全选
+                TotalPrice();
+            }
+        });
+
+        function TotalPrice() {
+            var allprice = 0; //总价
+            $(".store").each(function () { //循环每个店铺
+                var oprice = 0; //店铺总价
+                $(this).find(".product-check").each(function () { //循环店铺里面的商品
+                    var total = 0;//单个商品的总价
+                    if ($(this).is(":checked")) { //如果该商品被选中
+                        var num = parseInt($(this).parents(".product").find(".num").val()); //得到商品的数量
+                        var price = parseFloat($(this).parents(".product").find(".product-one-price").text()); //得到商品的单价
+                        var total = price * num; //计算单个商品的总价
+                        if (isNaN(total)) {
+                            total = price * 1;
+                        }
+                        oprice += total; //计算该店铺的总价
+                    }
+                    $(this).closest(".store").find(".store-total-price").text(oprice.toFixed(2)); //显示被选中商品的店铺总价
+                });
+                var oneprice = parseFloat($(this).find(".store-total-price").text()); //得到每个店铺的总价
+                allprice += oneprice; //计算所有店铺的总价
+            });
+            $(".total-product-num").text($(".product-check:checked").length);//共计几件商品
+            $(".total-price").text(allprice.toFixed(2)); //输出全部总价
+        }
+    </script>
+</body>
+
+</html>

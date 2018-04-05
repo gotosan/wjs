@@ -1,0 +1,132 @@
+*{
+    max-width: 450px;
+    margin: 0 auto;
+}
+body{
+        background:#F0F8FF;
+}
+/* 头部栏 */
+.head_title{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    background: palevioletred;
+    color: #fff;
+    font-size: 20px;
+    margin: 0 auto;
+}
+.content-width{
+    width:100%;
+    border-bottom: 1px solid #ddd;
+    margin: 0 auto;
+}
+.store{
+    width: 96%;
+    height:1000%;
+    margin: 0 auto;
+    background: #fff !important;
+}
+.store>div:nth-child(1),
+.store>div:nth-child(3),
+.store>div:nth-child(5),
+.store>div:nth-child(7),
+.store>div:nth-child(9),
+.store>div:nth-child(11),
+.store>div:nth-child(13),
+.store>div:nth-child(15),
+.store>div:nth-child(17),
+.store>div:nth-child(19),
+.store>div:nth-child(21){
+    float: left;
+}
+.product{
+    position: relative;
+    padding: 1%;
+}
+.product>input[type='checkbox'] {
+    opacity: 1;
+    float: left;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-10px);
+     -webkit-transition: background-color 0.3s;
+     transition: background-color 0.3s;
+     background-color: #fff;
+     border: 1px solid #d7d7d7;
+     border-radius: 3px;
+     width: 16px;
+     height: 16px;
+     vertical-align: middle;
+     margin: 0 5px;
+}
+.span_title{
+    font-size: 20px;
+    margin-left: 8%;
+    color:#777;
+}
+.product-one-price{
+    font-size: 20px;
+}
+.product-price{
+    display:block;
+    width: 40%;
+    margin-left: 13%;
+}
+.content_gd{
+    position: absolute;
+    right:0;
+    top: 65%;
+    color: palevioletred;
+}
+.content_sq{
+    position: absolute;
+    right:0;
+    top: 65%;
+    display: none;
+    color: palevioletred;
+}
+.glyphicon,.glyphicon-menu-down{
+    color: palevioletred;
+}
+.ul_content{
+    font-size: 10px !important;
+    color:#B0B0B0 !important;
+    margin-left: 10%;
+}
+.li_title{
+    font-size: 16px;
+    color: palevioletred;
+    margin-left: 12%;
+}
+.content_none{
+    display:none;
+}
+
+/* foot */
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width:100%;
+    height:60px;
+    transform: translateX(-50%);
+    background:#FFFFF0;
+    font-size: 20px;
+    color: orangered;
+    line-height: 60px;
+    margin: 0 auto;
+    border-top:1px solid #f2dede;
+}
+footer>.yuyue{
+    background: lightpink;
+    border-radius: 5px;
+    border: 1px solid lightpink;
+    float: right;
+    color: #fff !important;
+    width: 30%;
+
+}
