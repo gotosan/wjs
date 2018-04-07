@@ -590,11 +590,13 @@
                     var num=1;
                     oprice += price*num;
                 $(this).closest(".store").find(".store-total-price").text(oprice.toFixed(2));
+                $(this).closest('li').css({background:'lightyellow',transition:'all .5s',opacity:'.8'})
               }else{
                 var price = parseFloat($(this).parents(".product").find(".product-one-price").text()); //得到单价
                 var num=0;
                 oprice += price*num;
                 $(this).closest(".store").find(".store-total-price").text(oprice.toFixed(2));
+                $(this).closest('li').css('background','#fff')
               }
             });
             var oneprice = parseInt($(this).find(".store-total-price").text()); //得到每个总价
