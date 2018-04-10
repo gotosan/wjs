@@ -1,0 +1,172 @@
+.head_login{
+    width: 100%;
+    color: palevioletred;
+    text-align: center;
+    font-size: 24px;
+    height: 40px;
+    line-height: 40px;
+}
+.main_login{
+    position: relative;
+}
+.head_login>span{
+    border-bottom:1px solid palevioletred;
+    line-height: 40px;
+    height: 40px;
+}
+#input_text,
+#input_text2,
+#input_text3,
+#input_text1,
+#mpanel1,
+#input_text4 {
+    width: 94%;
+    height: 40px;
+    margin-left: 3%;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.shouji{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    font-size: 20px;
+}
+.mima{
+    position: absolute;
+    top: 218px;
+    right: 20px;
+    font-size: 20px;
+}
+.mima2{
+    position: absolute;
+    top: 170px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 100;
+}
+#input_submit{
+    width: 50%;
+    height: 40px;
+    border: palevioletred;
+    color: #fff;
+    margin-left: 50%;
+    transform: translateX(-55%);
+    background: palevioletred;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    line-height: 40px;
+}
+.zhuce>a{
+    float: left;
+    margin-left: 3%;
+    margin-top: 10px;
+    color: palevioletred;
+    font-size: 12px;
+}
+.wangji {
+    float: right;
+    margin-right: 3%;
+    margin-top: 10px;
+    color: palevioletred;
+    font-size: 12px;
+}
+.user_logo{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+}
+.shouji_login{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+}
+.mima_login{
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    font-size: 20px;
+}
+.d_none{
+    display: none;
+}
+.mima_login2 {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    font-size: 14px;
+    color: palevioletred;
+    border-left: 1px solid palevioletred;
+    padding-left: 7px;
+}
+.cuowu_login{
+    color: orangered;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}
+.cuowu{
+    color: orangered;
+    position: absolute;
+    top: 70px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}
+.cuowu2 {
+    color: orangered;
+    position: absolute;
+    top: 170px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}
+.cuowu3 {
+    color: orangered;
+    position: absolute;
+    top: 220px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}
+.cuowu4 {
+    color: orangered;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+    font-size: 10px;
+}
+.cuowu5 {
+    color: orangered;
+    position: absolute;
+    top: 120px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}
+.form_zhuce{
+    color:#ddd !important;
+}
+.sfz{
+    position: absolute;
+    top: 120px;
+    right: 20px;
+    font-size: 20px;
+}
+.cuowu_xingming{
+    color: orangered;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    font-size: 14px;
+    display: none;
+}

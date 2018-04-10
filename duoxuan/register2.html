@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="render" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>注册</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/base2.css">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <header class="head_login">
+        <span>注册</span>
+    </header>
+    <main class="main_login">
+        <form action="#">
+            <input type="text" placeholder="请输入姓名" id="input_text" value="">
+            <span class="cuowu_xingming">姓名不能为空</span>
+            <span class="glyphicon glyphicon-user user_logo"></span>
+            <input type="text" placeholder="请输入用户号(手机号)" id="input_text1" value="">
+            <span class="glyphicon glyphicon-phone shouji" maxlength="16" name="txtpwd"></span>
+            <span class="cuowu">用户名(手机号)格式有误</span>
+            <input type="text" placeholder="请输入身份证号码" id="input_text4" value="">
+            <span class="glyphicon glyphicon-phone shouji" maxlength="16" name="txtpwd"></span>
+            <span class="glyphicon glyphicon-credit-card sfz"></span>
+            <span class="cuowu5">身份证格式有误</span>
+            <input type="password" placeholder="请输入密码" id="input_text2" value="">
+            <span class="glyphicon glyphicon-lock mima"></span>
+            <span class="cuowu2">密码最短6位</span>
+            <input type="password" placeholder="请再输入密码" id="input_text3" value="">
+            <span class="glyphicon glyphicon-lock mima2"></span>
+            <input type="submit" value="注册" id="input_submit">
+            <span class="cuowu3">输入密码不一致</span>
+        </form>
+        <span class="zhuce"><a href="zhuce.html">新用户注册</a> </span>
+        <span class="wangji">联系客服</span>
+    </main>
+    <script src="./js/jquery.min.js"></script>
+    <script>
+        $("#input_text").focus(function () {
+
+        })
+        $('#input_text').blur(function () {
+            let oValue =$(this).val();
+             if(oValue==""){
+                 $(".cuowu_xingming").css('display', 'block');
+             }else{
+                 $(".cuowu_xingming").css('display','none');
+             }
+        })
+        $("#input_text1").focus(function () {
+
+
+        })
+        $('#input_text1').blur(function () {
+            let oValue =$(this).val();
+            //  console.log(oValue);
+             let reg= /^(0|86|17951)?(13[0-9]|15[012356789]|17[2678]|18[0-9]|14[57])[0-9]{8}$/;
+             if(reg.test(oValue)){
+                 $(".cuowu").css('display', 'none');
+             }else{
+                 $(".cuowu").css('display','block');
+             }
+        })
+        $("#input_text2").focus(function(){
+            
+        });
+        $("#input_text2").blur(function(){
+            let oValue=$(this).val();
+            let reg=/^[\w_-]{6,16}$/;
+            if(reg.test(oValue)){
+                $(".cuowu2").css('display', 'none');
+            }else{
+                $(".cuowu2").css('display', 'block');
+            }
+        })
+        $("#input_text3").focus(function(){
+            
+        });
+        $("#input_text3").blur(function(){
+            let oValue=$(this).val();
+            if($("#input_text2").val()!=oValue){
+                $(".cuowu3").css('display', 'block');
+            }else{
+                $(".cuowu3").css('display', 'none');
+            }
+        })
+        $("#input_text4").focus(function(){
+            
+        });
+        $("#input_text4").blur(function(){
+            let oValue=$(this).val();
+            let reg= /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)|(^[1-9]\d{5}\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}$)/;
+            if(reg.test(oValue)){
+                $(".cuowu5").css('display', 'none');
+            }else{
+                $(".cuowu5").css('display', 'block');
+            }
+        })
+        $("#input_submit").click(function(){
+            if($(".cuowu").css('display') == "none"|| $(".cuowu2").css('display') == "none"|| $(".cuowu3").css('display') == "none"|| $(".cuowu4").css('display') == "none"|| $(".cuowu5").css('display') == "none"|| $(".cuowu_xingming").css('display') == "none"){
+                console.log("zq")
+            }else{}
+        })
+        
+    </script>
+</body>
+
+</html>

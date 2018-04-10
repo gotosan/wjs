@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+<meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+<link rel="stylesheet" href="../resource/css/aui.css">
+<link rel="stylesheet" href="../resource/css/ui.css">
+<link rel="stylesheet" href="../resource/css/department.css">
+<link rel="stylesheet" type="text/css" href="../resource/css/style.css">
+<link rel="stylesheet" type="text/css" href="../resource/css/cart.css">
+<link rel="stylesheet" href="../resource2/css/header.css">
+<title>选择诊疗项目</title>
+</head>
+
+<body>
+#set($numberProj = $rundata.request.session.getAttribute("numberProj"))
+#set($totalProj = $rundata.request.session.getAttribute("totalProj"))
+<header class="center center_d">
+	<h1 class="title">$mini #if($largeClass)/$largeClass#end #if($smallClass)/$smallClass#end</h1>
+		#if($bak=='orderProjClassText')
+		#set($returnUrl= "orderProjClassText?deptCode=$deptCode&bak=$bak")
+	#elseif($bak=='orderProjClassPic')
+		#set($returnUrl= "orderProjClassPic?deptCode=$deptCode&sexClass=$sexClass")
+	#elseif($bak=='orderProjType')
+		#set($returnUrl= "orderProjType")
+	#end
+	<a href="$returnUrl">
+		<div class="center_c return">
+			<p class="center_c return_font">返回上一页</p>
+		</div>
+	</a>
+</header>
+<div class="grade-w-roll">
+    <ul class="g_orderproj">
+      #foreach($obj in $projList)
+      <li class="clearfix sc-border1 aui-padded-5" tapmode="active">
+      	<input class="aui-radio" type="checkbox" value="$obj.id" id="$obj.id"  #if($obj.checked == true) checked #end />
+      	<div class="uinn-l2">
+	      <label class="aui-ellipsis-2" for="$obj.id">$obj.projName</label>
+	      <div class="umar-t1"><em style="margin-left:0px;"><label for="$obj.id">&yen;&nbsp; $obj.charge</label></em></div>
+	    </div>
+      </li>
+      #end
+##      <li class="clearfix sc-border1 aui-padded-5" tapmode="active">
+##      	<input class="aui-radio" type="checkbox" value="" id="">
+##      	<div class="uinn-l2">
+##	      <label class="aui-ellipsis-2">projName</label>
+##	      <div class="umar-t1"><em style="margin-left:0px;">&yen;&nbsp; 0.00</em></div>
+##	    </div>
+##      </li>
+##      <li class="clearfix sc-border1 aui-padded-5" tapmode="active">
+##      	<input class="aui-radio" type="checkbox" value="" id="">
+##      	<div class="uinn-l2">
+##	      <label class="aui-ellipsis-2">projName</label>
+##	      <div class="umar-t1"><em style="margin-left:0px;">&yen;&nbsp; 0.00</em></div>
+##	    </div>
+##      </li>
+    </ul>
+    
+</div>
+<footer>
+	<div class="ft-lt">
+        <p><span class="nm icon-order"><label class="share">0</label></span><em>&yen;&nbsp;</em><span id="total" class="total">0.00</span></p>
+    </div>
+    <div class="ft-rt" style="background-color: #4f6de6">
+    	<p class="color1" onclick="javascript:window.location.href='order'">选好了</p>
+    </div>
+</footer>
+<div class="modal" style="display: none;"></div>
+<div class="md-cart" style="display: none;">
+<div class="md-cart-t flex">
+<div class="cart-l flex-l"><span>项目清单</span></div>
+<div class="cart-r" id="btn-del"><i class="icon-delete"></i>清空</div>
+</div>
+<div id="result">
+##<div class="md-cart-b">
+##	<div class="prt-lt cart-bx list-lh umar-l">
+##		<div class="cart-pl flex" style="width:4rem !important;">
+##			<div class="aui-ellipsis-1" style="width:3rem !important;">obj.projName</div>
+##			<p class="pr cart-ab">
+##				<span class="price total">0.00 元</span>
+##			</p>
+##		</div>
+##	</div>
+##</div>
+</div>
+</body>
+<script src="../resource/js/jquery.min.js"></script>
+<script src="../resource/js/demo.js"></script>
+<script type="text/javascript" src="../resource/js/Adaptive.js"></script>
+
+<script> 
+$(function(){ 
+	<!--遮照层-->
+	$(".modal").hide();
+	$(".md-cart").hide();
+	$(".icon-order").click(function(){
+		$.ajax({
+		     url: 'json/Order/get_proj_list.json',
+		     type: 'GET',
+		     dataType: 'json',
+		     timeout: 1000,
+		     cache: false,
+		     error: erryFunction,  //错误执行方法  
+	         success: succListFunction //成功执行方法  
+	 	});
+	
+		$(".modal").show();
+		$(".md-cart").slideDown(300);
+	});
+	
+	$(".modal").click(function(){
+		$(".modal").hide();
+		$(".md-cart").slideUp(100);
+	})
+
+
+	$(".aui-radio").change( function() {
+		//alert(this.value);
+		var projId = this.value;
+		if($("#"+projId).is(':checked')){
+		 	//选中
+		 	$.ajax({
+		     	url: 'json/Order/add_proj.json',
+		     	type: 'GET',
+		     	data:{
+		       		'projId': projId
+		     	},
+		     	dataType: 'json',
+		     	timeout: 1000,
+		     	cache: false,
+		     	error: erryFunction,  //错误执行方法  
+	            success: succFunction //成功执行方法  
+		 	});
+		} else {
+			//不选中
+			$.ajax({
+		     	url: 'json/Order/delete_proj.json?projId='+projId,
+		     	type: 'GET',
+		     	dataType: 'json',
+		     	timeout: 1000,
+		     	cache: false,
+		     	error: erryFunction,  //错误执行方法  
+	            success: succFunction //成功执行方法  
+		 	});
+			
+		}
+		
+		 
+	});
+	function erryFunction() {
+	    alert("error");
+	}
+	function succFunction(data) {
+	 	//alert(data.numberProj);
+	 	$(".share").html(data.numberProj);
+	 	$("#total").html(data.totalProj); 
+	 	//清空则刷新页面
+	 	if(data.reload == 1){
+	 		location.reload();
+	 	}
+	} 
+	
+	function init(){
+		$(".share").html($!numberProj);
+		$("#total").html($!totalProj); 
+	}
+	
+	init();
+
+	function succListFunction(data) {
+	
+		$("#result").empty();
+	   	var html = "";
+	   	$.each($.parseJSON(data), function(i, obj) {
+			//alert(obj.drugName);
+			html += '<div class="md-cart-b">'+
+				   		'<div class="prt-lt cart-bx list-lh umar-l">'+
+					        '<div class="cart-pl flex" style="width:4rem !important;">'+
+						'<div class="aui-ellipsis-1" style="width:3rem !important;">'+ obj.projName +
+						'</div>'+	
+						'<p class="pr cart-ab"><span class="price total">'+obj.chargeStr+'元</span></p>'+
+					        '</div>'+
+					    '</div>'+
+					'</div>'; 
+	   });
+	   //alert(html);
+	   $("#result").append(html);
+	   
+	}
+	
+	//已选列表中的清空按钮
+	$("#btn-del").click(function(){
+		$.ajax({
+		     url: 'json/Order/empty_proj.json',
+		     type: 'POST',
+		     dataType: 'json',
+		     timeout: 1000,
+		     cache: false,
+		     error: erryFunction,  //错误执行方法  
+             success: succFunction //成功执行方法  
+		 });
+		 
+		 
+	}); 
+}) 
+</script> 
+</html>

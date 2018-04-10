@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="./js/jquery.min.js"></script>
+    <style>
+        body {
+            font: 12px/1.5 Arial;
+        }
+
+        #txtpwd {
+            float: left;
+            font-size: 12px;
+            width: 150px;
+            font-family: arial;
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        #txtpwd.correct {
+            border: 1px solid green;
+        }
+
+        #txtpwd.error {
+            border: 1px solid red;
+        }
+
+        #tips {
+            float: left;
+            margin: 2px 0 0 20px;
+        }
+
+        #tips span {
+            float: left;
+            width: 50px;
+            height: 20px;
+            color: #fff;
+            overflow: hidden;
+            background: #ccc;
+            margin-right: 2px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        #tips.s1 .active {
+            background: #f30;
+        }
+
+        #tips.s2 .active {
+            background: #fc0;
+        }
+
+        #tips.s3 .active {
+            background: #cc0;
+        }
+
+        #tips.s4 .active {
+            background: #090;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password" id="txtpwd" name="txtpwd" maxlength="16" />
+        <div id="tips">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            pageLoad();
+        });
+        //////////////////////////////////////////////////////////////////////
+        //页面加载初始化，以及鼠标事件的绑定
+        //////////////////////////////////////////////////////////////////////
+        function pageLoad() {
+            var oTips = document.getElementById('tips');
+            var oInput = document.getElementById('txtpwd');
+            var aSpan = oTips.getElementsByTagName("span");
+            var aStr = ["弱", "中", "强", "非常好"];
+            var i = 0;
+            //文本框绑定事件
+            $("#txtpwd").bind('keyup onfocus onblur', function () {
+
+                var index = checkStrong(this.value);
+                this.className = index ? "correct" : "error";//样式中控制的
+                oTips.className = "s" + index;
+                for (i = 0; i < aSpan.length; i++) {
+                    //先清空在赋值
+                    aSpan[i].className = aSpan[i].innerHTML = "";
+                    //赋值
+                    if (oInput.value != "") {
+                        aSpan[index - 1].className = "active";
+                        aSpan[index - 1].innerHTML = aStr[index - 1];
+                    }
+
+                }
+            });
+        }
+        //////////////////////////////////////////////////////////////////////
+        //密码检测密码强度
+        //////////////////////////////////////////////////////////////////////
+        function checkStrong(sValue) {
+            var modes = 0;
+            //正则表达式验证符合要求的
+            if (sValue.length < 1) return modes;
+            if (/\d/.test(sValue)) modes++; //数字
+            if (/[a-z]/.test(sValue)) modes++; //小写
+            if (/[A-Z]/.test(sValue)) modes++; //大写  
+            if (/\W/.test(sValue)) modes++; //特殊字符
+
+            //逻辑处理
+            switch (modes) {
+                case 1:
+                    return 1;
+                    break;
+                case 2:
+                    return 2;
+                case 3:
+                case 4:
+                    return sValue.length < 12 ? 3 : 4
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

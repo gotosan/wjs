@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <meta name="render" content="webkit">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>登录/注册</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/base2.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/verify.css">   
+</head>
+
+<body>
+    <header class="head_login">
+        <span>登录</span>
+    </header>
+    <main class="main_login">
+        <form action="#">
+        <input type="text" placeholder="请输入手机号码" id="input_text" value="">
+        <span class="glyphicon glyphicon-phone shouji_login"></span>
+        <span class="cuowu_login">手机格式有误</span>
+        <input type="password" placeholder="请输入密码" id="input_text2" value="">
+        <span class="glyphicon glyphicon-lock mima_login"></span>
+        <div id="mpanel1"></div>
+        <input type="submit" value="登录" id="input_submit">
+        </form>
+        <span class="zhuce"><a href="register"> 新用户注册</a></span>
+        <span class="wangji">忘记密码？</span>
+    </main>
+    <script src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/verify.js"></script>
+    <script>
+            $("#input_text").focus(function () {
+
+
+            })
+            $('#input_text').blur(function () {
+                var oValue = $(this).val();
+                //  console.log(oValue);
+                var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[2678]|18[0-9]|14[57])[0-9]{8}$/;
+                if (reg.test(oValue)) {
+                    $(".cuowu_login").css('display', 'none');
+                } else {
+                    $(".cuowu_login").css('display', 'block');
+                }
+            })
+
+            $('#mpanel1').slideVerify({
+        		type : 1,		//类型
+        		vOffset : 20,	//误差量，根据需求自行调整
+		        barSize : {
+		        	width : '96%',
+		        	height : '40px',
+		        },
+		        ready : function() {
+		    	},
+		        success : function() {
+		        	alert('验证成功');
+		        	//......后续操作
+		        },
+		        error : function() {
+//		        	alert('验证失败！');
+		        }
+		        
+		    });
+    </script>
+</body>
+</html>
